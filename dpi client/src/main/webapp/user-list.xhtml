@@ -42,7 +42,7 @@
                         <p:commandButton value="Send message" update="@(.ui-dialog)" styleClass="btn-info"
                                          action="#{userListMB.sendMessage}"
                                          disabled="#{empty userListMB.selectedUsers or userListMB.selectedUsers.size() == 0}"
-                                         icon="fa fa-comment-alt"/>
+                                         icon="fa fa-envelope"/>
                     </div>
 
                     <p:splitButton value="New" action="user-form?faces-redirect=true"

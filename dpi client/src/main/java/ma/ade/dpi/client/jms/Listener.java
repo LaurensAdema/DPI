@@ -26,7 +26,7 @@ public class Listener implements MessageListener {
         }
     }
 
-    public void setAsyncReceiveQueueClientExample(Receiver receiver) {
+    public void setReceiver(Receiver receiver) {
         this.receiver = receiver;
     }
 }

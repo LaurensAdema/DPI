@@ -2,7 +2,6 @@ package ma.ade.dpi.client.bean;
 
 import com.github.adminfaces.template.exception.BusinessException;
 import ma.ade.dpi.client.domain.Group;
-import ma.ade.dpi.client.jms.Connector;
 import ma.ade.dpi.client.jms.Sender;
 import ma.ade.dpi.client.model.Filter;
 import ma.ade.dpi.client.security.LogonMB;
@@ -16,8 +15,6 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.TextMessage;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;

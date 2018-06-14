@@ -1,32 +1,31 @@
 package ma.ade.dpi.client.security;
 
-import com.github.adminfaces.template.security.LogoutMB;
 import com.github.adminfaces.template.session.AdminSession;
 import ma.ade.dpi.client.domain.User;
 import ma.ade.dpi.client.jms.IMessageHandler;
-import ma.ade.dpi.client.jms.Listener;
 import ma.ade.dpi.client.jms.Receiver;
 import ma.ade.dpi.client.service.UserService;
 import ma.ade.dpi.client.util.Utils;
-import org.apache.activemq.Message;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Specializes;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import static ma.ade.dpi.client.util.Utils.addDetailMessage;
 
 import com.github.adminfaces.template.config.AdminConfig;
 import org.omnifaces.util.Messages;
 
 import javax.inject.Inject;
 import javax.jms.JMSException;
-import javax.jms.TextMessage;
 
 /**
  * Created by rmpestano on 12/20/14.
@@ -53,9 +52,11 @@ public class LogonMB extends AdminSession implements Serializable, IMessageHandl
     @Inject
     private UserService userService;
     private Map<String,Receiver> receivers;
+    private List<String> messages;
 
     public LogonMB() {
         receivers = new HashMap<>();
+        messages = new ArrayList<>();
     }
 
     public void login() throws IOException {
@@ -132,6 +133,12 @@ public class LogonMB extends AdminSession implements Serializable, IMessageHandl
 
     @Override
     public void handleMessage(String message) {
-        Messages.create("Info").detail(message).add();
+        messages.add(message);
+    }
+
+    public List<String> getMessages() {
+        //List<String> messages = new ArrayList<>(this.messages);
+        //this.messages.clear();
+        return messages;
     }
 }
