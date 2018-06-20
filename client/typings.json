@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "amqplib": "registry:npm/amqplib#0.4.1+20160726143451",
+    "bluebird": "registry:npm/bluebird#3.5.0+20170314181206",
+    "winston": "registry:dt/winston#2.3.0+20170323124512"
+  }
+}

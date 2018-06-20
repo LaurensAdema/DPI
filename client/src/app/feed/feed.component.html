@@ -1,0 +1,8 @@
+<section class="timeline" *ngIf="!blockTimeline">
+  <div class="text-left">
+    <div class="section-heading">
+      <h3>Feed <span class="badge blue">{{ messages.length }}</span></h3>
+    </div>
+    <app-message [@ngIfAnimation] *ngFor="let message of messages; "[message]="message"></app-message>
+  </div>
+</section>

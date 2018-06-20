@@ -10,6 +10,12 @@
         <h2 class="align-center">
             Welcome to the DPI chatapp by Laurens
         </h2>
+        <h:form>
+            <ui:repeat id="messsages" value="#{logonMB.getMessages}" var="value">
+                #{value} <br />
+            </ui:repeat>
+            <p:poll interval="3" update="messsages" />
+        </h:form>
     </ui:define>
 
 </ui:composition>

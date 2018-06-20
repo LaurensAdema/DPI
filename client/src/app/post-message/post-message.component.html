@@ -1,0 +1,12 @@
+<section class="post-message" *ngIf="user">
+  <form (ngSubmit)="onSubmit()" #postMessageForm="ngForm" class="md-form">
+    <textarea mdbInputDirective type="text" id="form-mess" class="md-textarea"
+              (keydown.enter)="$event.preventDefault();onSubmit();"
+              maxlength="140" required id="message" [(ngModel)]="model.message" name="message" #message="ngModel">
+    </textarea>
+    <label for="form-mess">Type a message</label>
+    <button id="submit" type="submit" class="btn btn-primary waves-effect waves-light float-right" [disabled]="!postMessageForm.form.valid">Message</button>
+  </form>
+</section>
+
+

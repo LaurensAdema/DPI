@@ -141,4 +141,8 @@ public class LogonMB extends AdminSession implements Serializable, IMessageHandl
         //this.messages.clear();
         return messages;
     }
+
+    public void setMessages(List<String> messages) {
+        this.messages = messages;
+    }
 }

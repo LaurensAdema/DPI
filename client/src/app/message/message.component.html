@@ -1,0 +1,17 @@
+<section class="message" [@animateMessage]>
+  <div class="row">
+    <div class="col-sm-2 col-12">
+      <img src="http://www.fmclinic.co.uk/assets/unknown_user_large.png"
+           [alt]="message.sender.username">
+    </div>
+    <div class="col-sm-10 col-12">
+      <h3 class="user-name">{{ message.sender.username }}</h3>
+      <div class="card-data">
+        <ul class="list-unstyled">
+          <li class="comment-date"><i class="fa fa-clock-o"></i> {{ message.date | amTimeAgo }}</li>
+        </ul>
+      </div>
+      <p class="comment-text">{{ message.message }}</p>
+    </div>
+  </div>
+</section>
