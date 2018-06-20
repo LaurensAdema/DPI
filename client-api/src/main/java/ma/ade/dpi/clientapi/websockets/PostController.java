@@ -22,7 +22,7 @@ public class PostController {
     public void handle(String messageString) {
         try {
             Message message = new ObjectMapper().readValue(messageString, Message.class);
-            template.convertAndSend(broker.getName(), message.getDestination(), message);
+            template.convertAndSend(broker.getName(), "broker", message);
         } catch (IOException e) {
             e.printStackTrace();
         }

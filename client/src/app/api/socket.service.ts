@@ -16,10 +16,13 @@ export class SocketService {
 
   startListener() {
     const user = this.userService.getLoggedInUser();
+    if (this.stompService.connected()) {
+      this.stompService.disconnect();
+    }
     if (user) {
-      const userSub = this.stompService.subscribe(`user/${user.username}`);
+      const userSub = this.stompService.subscribe(`${user.username}`);
       userSub.subscribe(this.onMessage);
-      const groupSub = this.stompService.subscribe(`group/${user.group.name}`);
+      const groupSub = this.stompService.subscribe(`${user.group.name}`);
       groupSub.subscribe(this.onMessage);
     }
   }
@@ -28,7 +31,7 @@ export class SocketService {
     this.messageUpdated.next(JSON.parse(message.body));
   }
 
-  sendMessage(message: Message) {
+  postMessage(message: Message) {
     this.stompService.publish('post', JSON.stringify(message));
   }
 }

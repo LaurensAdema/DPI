@@ -24,6 +24,8 @@ const stompConfig: StompConfig = {
   // Which server?
   url: `${environment.ws_protocol}${environment.api_domain}/messages/`,
   headers: {
+    login: 'guest',
+    passcode: 'guest'
   },
   heartbeat_in: 0, // Typical value 0 - disabled
   heartbeat_out: 20000, // Typical value 20000 - every 20 seconds

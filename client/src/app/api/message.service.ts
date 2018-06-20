@@ -8,6 +8,6 @@ export class MessageService {
   constructor(private http: HttpClient) {}
 
   postMessage(tweet) {
-    return this.http.put<Message>(`${environment.api_protocol}${environment.api_domain}/message`, tweet);
+    return this.http.post<Message>(`${environment.api_protocol}${environment.api_domain}/rest/message`, tweet);
   }
 }

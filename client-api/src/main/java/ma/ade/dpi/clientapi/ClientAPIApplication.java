@@ -8,6 +8,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class ClientAPIApplication {
 	public static void main(String[] args) throws InterruptedException {
-		SpringApplication.run(ClientAPIApplication.class, args).close();
+		SpringApplication.run(ClientAPIApplication.class, args);
 	}
 }
